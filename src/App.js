@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+import reminders from './Reducers/Index'
 
+import Reminder from './Components/Reminder';
+
+const store = createStore(reminders); 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1> Reminder Pro!!</h1>
+     <p>It's time to calculate productivity.......</p>
+     
+     <Provider store={store}>
+     <Reminder/>
+     </Provider>
+     
     </div>
   );
 }
